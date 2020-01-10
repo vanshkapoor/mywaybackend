@@ -17,19 +17,23 @@ module.exports = passport => {
 			.then(user =>{
 				if(user){
 					return done(null,user);
+					
 				}
-				return done(null, user);
+				else{
+					User.findById(jwt_payload.id)
+					.then(user => {
+						if(user){
+							return done(null, user);
+						}
+						return done(null, false);
+					})
+					.catch(err => console.log(err));
+				}
+				// return done(null, false);
 			})
 			.catch(err => console.log(err));
 
-            User.findById(jwt_payload.id)
-			.then(user => {
-				if(user){
-					return done(null, user);
-				}
-				return done(null, false);
-			})
-			.catch(err => console.log(err));
+
 		})
 	);
 };

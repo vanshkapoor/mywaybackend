@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-const classschema = new schema({
+const classschema = new Schema({
     user:{
 		type:Schema.Types.ObjectId,
 		ref:'users'
@@ -10,15 +10,13 @@ const classschema = new schema({
         type:Number,
         default:0
     },
-    classes:[
+    students:[
         {
             student:{
-				type:Schema.Types.ObjectId,
-				ref:'student'
+				type:String
             }
         }
        ],
-
     date:{
         type:Date,
         default: Date.now

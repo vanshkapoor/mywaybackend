@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 const passport = require('passport');
 const user = require('./routes/user');
 const student = require('./routes/student');
+const classes = require('./routes/classes')
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -29,7 +30,7 @@ app.get('/',(req,res)=>{
 
 app.use("/user", user);
 app.use("/student", student);
-
+app.use("/classes", classes);
 
 const port = process.env.PORT||5000;
 app.listen(port , (err) =>{

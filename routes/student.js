@@ -21,7 +21,8 @@ router.post('/register', (req,res)=>{
                 const newuser = new Student({
                     name:req.body.name,
                     email:req.body.email,
-                    password:req.body.password    
+                    password:req.body.password,
+                    classes:req.body.classes    
                 });
                 bcrypt.genSalt(10,(err,salt) => {
                     bcrypt.hash(newuser.password, salt, (err,hash) => {

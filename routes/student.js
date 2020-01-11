@@ -76,6 +76,7 @@ router.post('/login',(req,res) =>{
 
 // @route /user/current
 router.get('/current',passport.authenticate('jwt',{ session:false }),(req,res) => {
+        console.log(req.user.name);
         res.json({usr : req.user});
 });
 

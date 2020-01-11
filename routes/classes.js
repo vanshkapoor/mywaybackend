@@ -61,7 +61,7 @@ router.post('/create/:id', passport.authenticate('jwt',{ session:false }), (req,
                     // res.json(studentcls);
                     console.log("studentcls-------")
                     console.log(studentcls);
-                    
+
                     if(studentcls.length > 0){                        
                         console.log("if studentcls-------")
                         const scls={
@@ -133,12 +133,32 @@ router.get('/current',passport.authenticate('jwt',{ session:false }),(req,res) =
     res.json({usr : req.user});
 });
 
-router.get('/cur',passport.authenticate('jwt',{ session:false }),(req,res) => {
+router.get('/teacher',passport.authenticate('jwt',{ session:false }),(req,res) => {
     Classes.find({user:req.user._id})
     .then((classes) => {
         res.json(classes)
     })
 });
+
+
+
+//for student to view his attendance in a particular subject/teacher
+router.get('/student/',passport.authenticate('jwt',{ session:false }),(req,res) =>{
+    // StudentClass.find({ $and:[ {student:req.user.name},{user:req.params.id} ] })
+    let name = req.user.email;
+    name = name.toString();
+    console.log(name);
+
+    StudentClass.find({student:name})
+    .then(studentcls => {
+        console.log(studentcls);
+        res.json(studentcls)
+    })
+
+} )
+
+
+
 
 
 module.exports = router;

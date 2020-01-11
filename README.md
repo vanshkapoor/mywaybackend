@@ -13,7 +13,7 @@ complete api doc link : https://suspicious-darwin-26f073.netlify.com/
 
 <br />
 
-#My works
+# My works
 - Github:
  -- https://github.com/vanshkapoor
 - Digital portfolio :
@@ -31,7 +31,7 @@ complete api doc link : https://suspicious-darwin-26f073.netlify.com/
 - vanshkapoor.github.io/room
 - a startup project : curator : an event management Reactapp
 
-#contact info:
+# contact info:
 - vansh kapoor
 - vanshkapoorvk7@gmail.com
 - 7982451633
